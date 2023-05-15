@@ -1,6 +1,6 @@
 import random
-#ships = (4,3,3,2,2,2,1,1,1,1)
-ships = (3,3,2,2,2,1,1,1,1)
+ships = (4,3,3,2,2,2,1,1,1,1)
+#ships = (3,3,2,2,2,1,1,1,1)
 #ships = (4)
 
 
@@ -81,22 +81,22 @@ def board_comp():#(y, x, z):
 #        print(board_0[d])
 
     #umieszczanie stsku 4 na planszy
-    y, x, z = powtorka(4)
+#    y, x, z = powtorka(4)
 #    y = 0
 #    x = 0
 #    z = 0
-    p0, p1, q0, q1, y, x, z = parametry(y, x, z, 4, board_0)
+#    p0, p1, q0, q1, y, x, z = parametry(y, x, z, 4, board_0)
 
-    for a in range(4):
-        if z == 0:
-            board_0[y][x+a] = 'S'#'4'#ships[i] #'S'
-        else:
-            board_0[y+a][x] = 'S'#'4'#ships[i] #'S'
+#    for a in range(4):
+#        if z == 0:
+#            board_0[y][x+a] = 'S'#'4'#ships[i] #'S'
+#        else:
+#            board_0[y+a][x] = 'S'#'4'#ships[i] #'S'
 #    print('board_0_4: ')
 #    for d in range (10):
 #        print(board_0[d])
 
-    #tworzenie statków 3,3, 2,2,2, 1,1,1,1
+    #tworzenie statków 4, 3,3, 2,2,2, 1,1,1,1
 
     k = len(ships)
     for i in range(k):
