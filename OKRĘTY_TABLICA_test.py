@@ -68,7 +68,7 @@ def board_comp():
         print('board_comp:')
         print('y, x, z : ', y,'/', x,'/', z)
 
-        #umieszczanie stsków na planszy
+        #umieszczanie statków na planszy
 
         for a in range(statek):
             if z == 0:
@@ -104,7 +104,6 @@ def statek_new(statek, board_0):
     print('wiersz: ',wiersz)
 
     while 'S' in wiersz:
-#    if 'S' in wiersz:
         print('statek_new(statek, board_0')
         p0, p1, q0, q1, y, x, z = '','','','','','',''
         print('p0, p1, q0, q1, y, x, z = ',p0, p1, q0, q1, y, x, z)
