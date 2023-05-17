@@ -1,12 +1,5 @@
 import random
 ships = (4,3,3,2,2,2,1,1,1,1)
-#ships = (3,3,2,2,2,1,1,1,1)
-#ships = (4)
-
-
-
-#board_comp()
-
 
 
 #utworzenie pustej planszx
@@ -19,10 +12,6 @@ def board_new():
         for q in range (10):
             wiersz.append('')
         lista.append(wiersz)
-
-    #print('nowa plansza:')
-    #for y in range (10):
-    #    print(lista[y])
     return lista
 
 
@@ -37,13 +26,6 @@ def board_new_n():
             wiersz.append(a + q)
         lista.append(wiersz)
         a += 10
-    #print('nowa plansza:')
-    #for y in range (10):
-    #    print(lista[y])
-
-    #print('===========')
-    #print()
-
     return lista
 
 
@@ -53,51 +35,22 @@ def number_s():
     y = random.randint(0,9)
     x = random.randint(0,9)
     z = random.randint(0,1)
-#    y = 3
-#    x = 2
-#    z = 0
     return y, x, z
 #==============================================================================
 def powtorka(statek):
     y, x, z = number_s()
-
     while (y > (10 - statek)) and (x > (10 - statek)):
         y = random.randint(0,9)
         x = random.randint(0,9)
-
     if y > (10 - statek): z = 0
     if x > (10 - statek): z = 1
     print('y, x, z - powtorka: ',y,' ',x,' ',z)
-
     return y, x, z
 
 #==============================================================================
 
-def board_comp():#(y, x, z):
-
+def board_comp():
     board_0 = board_new()
-#    print('board_0: ')
-#    for d in range (10):
-#        print(board_0[d])
-
-    #umieszczanie stsku 4 na planszy
-#    y, x, z = powtorka(4)
-#    y = 0
-#    x = 0
-#    z = 0
-#    p0, p1, q0, q1, y, x, z = parametry(y, x, z, 4, board_0)
-
-#    for a in range(4):
-#        if z == 0:
-#            board_0[y][x+a] = 'S'#'4'#ships[i] #'S'
-#        else:
-#            board_0[y+a][x] = 'S'#'4'#ships[i] #'S'
-#    print('board_0_4: ')
-#    for d in range (10):
-#        print(board_0[d])
-
-    #tworzenie statków 4, 3,3, 2,2,2, 1,1,1,1
-
     k = len(ships)
     for i in range(k):
         print('board_0_1: ')
@@ -106,7 +59,7 @@ def board_comp():#(y, x, z):
 
         statek = ships[i]
 
-        print('\ni - statek: ',i,'/',statek)
+        print('\ni - STATEK : ',i,'/',statek,'\n')
 
         board_0 = board_0
 
@@ -119,9 +72,9 @@ def board_comp():#(y, x, z):
 
         for a in range(statek):
             if z == 0:
-                board_0[y][x+a] = 'S'#ships[i] #'S'
+                board_0[y][x+a] = 'S'
             else:
-                board_0[y+a][x] = 'S'#ships[i] #'S'
+                board_0[y+a][x] = 'S'
 
         print('board_0_3: ')    
         for d in range (10):
@@ -150,26 +103,39 @@ def statek_new(statek, board_0):
 
     print('wiersz: ',wiersz)
 
-    if 'S' in wiersz:
+    while 'S' in wiersz:
+#    if 'S' in wiersz:
         print('statek_new(statek, board_0')
         p0, p1, q0, q1, y, x, z = '','','','','','',''
         print('p0, p1, q0, q1, y, x, z = ',p0, p1, q0, q1, y, x, z)
-        statek_new(statek, board_0)
-#        statek_new(statek, board_0, statek_i)
-    else:
+        y, x, z, wiersz = kontrola(p0, p1, q0, q1, y, x, z, statek, board_0)
+        print ('wiersz: ',wiersz,'\n')
         print('\nkontrola_S - wyjscie:')
         print('y, x, z : ', y,'/', x,'/', z)
         print('p0, p1, q0, q1: ',p0,'/', p1,'/', q0,'/', q1)
         print('======')
-        return y, x, z
-#    print('\nkontrola_S - wyjscie:')
-#    print('y, x, z : ', y,'/', x,'/', z)
-#    print('p0, p1, q0, q1: ',p0,'/', p1,'/', q0,'/', q1)
-#    print('======')
-#    return y, x, z
+    return y, x, z
 
+#======================================
 
+def kontrola(p0, p1, q0, q1, y, x, z, statek, board_0):
+    y, x, z = powtorka(statek)
+    p0, p1, q0, q1, y, x, z = parametry(y, x, z, statek, board_0)
 
+    print('parametry :')
+    print('y, x, z : ',y,' ',x,' ',z)
+    print('p0, p1, q0, q1 : ',p0,' ', p1,' ', q0,' ', q1)
+
+    wiersz = []
+    for p in range (p0, p1):
+        print('\np: ',p)
+        for q in range (q0, q1):
+            print('q:' ,q)
+            c = board_0[p][q]
+            print('c - statek_new: ',c)
+            wiersz.append(c)
+    return y, x, z, wiersz
+        
 #==============================================================================
 
 def parametry(y, x, z, statek, board_0):
@@ -254,20 +220,6 @@ def parametry(y, x, z, statek, board_0):
         p1 = 10
     return p0, p1, q0, q1, y, x, z
 
-
 #==============================================================================
-#==============================================================================
-
-#==============================================================================
-
-
 
 board_comp()
-
-
-
-
-
-
-
-
