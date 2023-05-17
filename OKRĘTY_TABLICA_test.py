@@ -14,7 +14,6 @@ def board_new():
         lista.append(wiersz)
     return lista
 
-
     #utworzenie planszy z numerami pól
 def board_new_n():
 
@@ -27,8 +26,6 @@ def board_new_n():
         lista.append(wiersz)
         a += 10
     return lista
-
-
 
 #==============================================================================
 def number_s():
